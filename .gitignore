@@ -31,4 +31,4 @@ build/
 .vscode/
 
 # react node modules
-src/main/resources/static/censor/node_modules/
+/src/main/js/censor/node_modules/
