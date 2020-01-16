@@ -36,8 +36,15 @@ public class LevensteinDistance implements Searcher {
         return a == b ? 0 : 1;
     }
 
+    /**
+     *
+     * @param errorsCount количество ошибок
+     * @param word1 первое слово
+     * @param word2 второе слово
+     * @return true - слова одинаковые, false - нет
+     */
     @Override
     public boolean compare(int errorsCount, String word1, String word2) {
-        return calculate(word1, word2) < errorsCount;
+        return calculate(word1, word2) > errorsCount;
     }
 }

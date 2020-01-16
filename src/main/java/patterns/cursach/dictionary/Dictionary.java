@@ -3,16 +3,25 @@ package patterns.cursach.dictionary;
 import patterns.cursach.stemmer.PorterStemmer;
 import patterns.cursach.stemmer.Stemmer;
 
+import java.io.File;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Dictionary {
     private static Dictionary instance;
     private List<String> badWords = new LinkedList<>();
 
     private Dictionary(Stemmer stemmer) {
-        //todo подумать что тут будет, что и откуда брать. можно ли в курсаче ругаться
-        String[] words = {"пример", "ругательство", "пидор"};
+        LinkedList<String> words = new LinkedList<>();
+        InputStream wordList = Dictionary.class.getResourceAsStream("/static/wordlist1.txt");
+        Scanner scanner = new Scanner(wordList);
+        while (scanner.hasNext()) {
+            words.add(scanner.next());
+        }
+        scanner.close();
+
         for (String word: words)
             badWords.add(stemmer.stem(word));
     }

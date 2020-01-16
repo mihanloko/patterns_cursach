@@ -11,6 +11,20 @@ public class SimpleIterator implements Iterator {
         lastWordStartPosition = 0;
     }
 
+    public int getLeftPosition() {
+        return lastWordStartPosition;
+    }
+
+    public int getRightPosition() {
+        return currentPosition;
+    }
+
+    public SimpleIterator(int lastWordStartPosition, int currentPosition, String text) {
+        this.currentPosition = currentPosition;
+        this.lastWordStartPosition = lastWordStartPosition;
+        this.text = text;
+    }
+
     private void skipSeparators() {
         while (currentPosition < text.length() &&
                 (text.charAt(currentPosition) == ' ' || text.charAt(currentPosition) == '\n' ||
