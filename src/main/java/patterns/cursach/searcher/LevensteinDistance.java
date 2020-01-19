@@ -9,27 +9,29 @@ public class LevensteinDistance implements Searcher {
                 .min().orElse(Integer.MAX_VALUE);
     }
 
-    private int calculate(String x, String y) {
-        int[][]dp = new int[x.length() + 1][y.length() + 1];
+    private int calculate(String str1, String str2) {
+        int[] Di_1 = new int[str2.length() + 1];
+        int[] Di = new int[str2.length() + 1];
 
-        for (int i = 0; i <= x.length(); i++) {
-            for (int j = 0; j <= y.length(); j++) {
-                if (i == 0) {
-                    dp[i][j]= j;
-                }
-                else if (j == 0) {
-                    dp[i][j]= i;
-                }
-                else {
-                    dp[i][j]= min(dp[i - 1][j - 1]
-                                    + costOfSubstitution(x.charAt(i - 1), y.charAt(j - 1)),
-                            dp[i - 1][j]+ 1,
-                            dp[i][j - 1]+ 1);
-                }
+        for (int j = 0; j <= str2.length(); j++) {
+            Di[j] = j; // (i == 0)
+        }
+
+        for (int i = 1; i <= str1.length(); i++) {
+            System.arraycopy(Di, 0, Di_1, 0, Di_1.length);
+
+            Di[0] = i; // (j == 0)
+            for (int j = 1; j <= str2.length(); j++) {
+                int cost = (str1.charAt(i - 1) != str2.charAt(j - 1)) ? 1 : 0;
+                Di[j] = min(
+                        Di_1[j] + 1,
+                        Di[j - 1] + 1,
+                        Di_1[j - 1] + cost
+                );
             }
         }
 
-        return dp[x.length()][y.length()];
+        return Di[Di.length - 1];
     }
 
     private int costOfSubstitution(char a, char b) {

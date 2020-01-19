@@ -16,7 +16,7 @@ import patterns.cursach.searcher.Searcher;
 @Controller
 public class CensorController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping("/")
     public String page(@RequestParam(name = "text", required = false, defaultValue = "") String text, Model model) {
         model.addAttribute("text", text);
         return "index";
