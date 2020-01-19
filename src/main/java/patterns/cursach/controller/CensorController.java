@@ -16,7 +16,7 @@ import patterns.cursach.searcher.Searcher;
 @Controller
 public class CensorController {
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String page(@RequestParam(name = "text", required = false, defaultValue = "") String text, Model model) {
         model.addAttribute("text", text);
         return "index";
@@ -39,6 +39,6 @@ public class CensorController {
         String result = censor.startCensorship(text, FactoryMods.SimpleText);
 
         attributes.addAttribute("text", result);
-        return "redirect:test";
+        return "redirect:/";
     }
 }
