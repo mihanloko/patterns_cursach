@@ -36,13 +36,13 @@
                 <span class="input-group-text">Действие с найденными словами</span>
             </div>
             <select
-                    name="algorithm"
+                    name="strategy"
                     class="custom-select"
                     id="inputGroupSelect01"
             >
-                <option value="1" selected>One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1" selected>Частично заменить</option>
+                <option value="2">Удалить</option>
+                <option value="3" disabled>Three</option>
             </select>
         </div>
 
@@ -52,13 +52,13 @@
                 <span class="input-group-text">Алгоритм поиска</span>
             </div>
             <select
-                    name="strategy"
+                    name="algorithm"
                     class="custom-select"
                     id="inputGroupSelect02"
             >
-                <option value="1" selected>One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1" selected>Расстояние Левенштейна</option>
+                <option value="2" disabled>Two</option>
+                <option value="3" disabled>Three</option>
             </select>
         </div>
 
@@ -72,9 +72,9 @@
                     class="custom-select"
                     id="inputGroupSelect03"
             >
-                <option value="1" selected>One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="1" selected>Стеммер Портера</option>
+                <option value="2" disabled>Two</option>
+                <option value="3" disabled>Three</option>
             </select>
         </div>
 
@@ -92,5 +92,15 @@
 
     </div>
 </form>
+
+    <!-- Connected jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Connected plugin Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <!-- Connected Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" ></script>
+
 </body>
 </html>

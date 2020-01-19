@@ -47,6 +47,7 @@ public class LevensteinDistance implements Searcher {
      */
     @Override
     public boolean compare(int errorsCount, String word1, String word2) {
-        return calculate(word1, word2) <= errorsCount;
+        int distance = calculate(word1, word2);
+        return distance <= errorsCount && distance <= (0.75 * min(word1.length(), word2.length()));
     }
 }
