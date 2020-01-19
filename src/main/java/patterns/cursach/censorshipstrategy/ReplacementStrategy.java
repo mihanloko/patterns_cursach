@@ -1,41 +1,22 @@
 package patterns.cursach.censorshipstrategy;
 
-import patterns.cursach.factory.TextContainer;
-import patterns.cursach.iterator.Iterator;
 import patterns.cursach.searcher.Searcher;
 import patterns.cursach.stemmer.Stemmer;
 
-import java.util.List;
-
-public class ReplacementStrategy extends CensorshipStrategy {
+public class ReplacementStrategy implements CensorshipStrategy {
 
     private int replacementCount;
 
-    public ReplacementStrategy(Searcher searcher, Stemmer stemmer, int replacementCount) {
-        super(searcher, stemmer);
+    public ReplacementStrategy(int replacementCount) {
         this.replacementCount = replacementCount;
     }
 
-    @Override
-    public TextContainer execute(TextContainer container, int errorCount) {
-        List<String> wordList = dictionary.getBadWords();
-        Iterator i = container.getIterator();
-        while (i.hasNext()) {
-            String currentWord = i.getNextWord();
-            boolean target = false;
-            for (String bad: wordList) {
-                target = searcher.compare(errorCount, stemmer.stem(currentWord), bad);
-                if (target) break;
-            }
-            if (target) {
-                i = container.replace(i, replace(currentWord));
-            }
-
-        }
-        return null;
+    public ReplacementStrategy() {
+        this.replacementCount = 3;
     }
 
-    private String replace(String word) {
+    @Override
+    public String replace(String word) {
         StringBuilder result = new StringBuilder();
         if (word.length() <= replacementCount) {
             for (int i = 0; i < word.length(); i++)

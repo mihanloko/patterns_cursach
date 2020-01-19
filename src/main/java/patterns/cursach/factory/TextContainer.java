@@ -24,4 +24,8 @@ public class TextContainer implements Iterable {
         this.text = newText.toString();
         return new SimpleIterator(i.getLeftPosition(), i.getRightPosition() - delta, text);
     }
+
+    public String getText() {
+        return text;
+    }
 }

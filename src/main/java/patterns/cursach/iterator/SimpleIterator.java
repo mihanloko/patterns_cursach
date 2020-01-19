@@ -51,4 +51,9 @@ public class SimpleIterator implements Iterator {
         skipSeparators();
         return currentPosition < text.length();
     }
+
+    @Override
+    public String getCurrentWord() {
+        return text.substring(lastWordStartPosition, currentPosition);
+    }
 }
