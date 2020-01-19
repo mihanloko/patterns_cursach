@@ -34,7 +34,7 @@ public class Censor {
             for (String bad: wordList) {
                 target = searcher.compare(errorCount, stemmer.stem(currentWord), bad);
                 if (target) {
-                    System.out.println(i.getCurrentWord() + " " + bad);
+                    System.out.println(i.getCurrentWord() + " " + stemmer.stem(i.getCurrentWord()) + " " + bad);
                     break;
                 }
             }
