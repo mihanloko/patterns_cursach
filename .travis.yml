@@ -1,6 +1,13 @@
 language: java
+addons:
+  sonarcloud:
+    organization: "mihanloko"
+    token:
+      secure: "sGjnNyHX+9sThyD2QYHwhZuL7cVqemHpIholjekjMInaWBqUmmBwrs2xTAxiaX63aQGdZ7VuMQ+8KyY2nopAf1WjkYVQ4JyywZnovcodHBISAzV28eQCR5XTsNSCDnNTrBM+ZWewP8ocQ/3sWVAS6ze+FfpP4utdgt0Ix2PlBNJwjNXiub7iaDweeT48oRqa+vuflHFxO5UdARd6jW7z0FN5G15p5CnF4qEElIDkyDNNvplbPXl2MzMogFdYE+btOtDiZx6Y7aMqcijyEdZMCn36AUY9+f+B8MB+8KipI5J7zfGD46N7gGo7fLQj/U0F9N/EG/fUnRdoy5AYT98BICgxPB+sBDWy3DAUxavMR5NcZszdrL+HqsPCxCXEYNncxZ1f/QQBw/HtVZpPWy9xyrqA4JzYb8P34UoJiz5VNrKrZ/UHDFu05sMVd2azoSwqgsg70VKFON9oodyaz0+tKnPqFboI37KzYoaMIcRpXCdOMwVwkU1hYLHqNIc7uaDcHctHQnCldLdHECUbpjDKfHjXhDHGOOFhFB7sPgWGB8Rc7Oum7MqMya1tRxwm7gBTB2fFXu5DR40PWOp5WJei3HrSps9zftYH20Wu/AHK6EDQBJUwpX+d1LN/VQTJqCzJ5pMOLR6XGfCztf/JHf3POXJU0MC2CnMoMRw0sCTX7Uc="
+
 script:
-- mvn clean install
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=mihanloko_patterns_cursach
+
 deploy:
   provider: heroku
   app:
