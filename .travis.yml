@@ -1,6 +1,6 @@
 language: java
 script:
-- mvn clean package install
+- mvn clean install
 deploy:
   provider: heroku
   app:
@@ -8,4 +8,4 @@ deploy:
   api_key:
     secure: BktKMkw0icfGaPUkQwGch86DIKElzvClMyMt2/42SXueqZYUGRiJb3pKikcnqtdez8L97ytbvckzvUEfjyDSLCjGVoeLQOgM8fih39w97BSRk5p7wlWZZHOOYR/eM28u6QA0L6UM9lXgblhNujeYNHXLrPae747RrRbJhYbocWiGLwGJ/Rpv8omfjtVOVerNHTWzg3exiNhnGdPObDhk6hrB1mgWlAuvO7cplXGI4SaoYJoDCh3x2VT2Mijg3Q9yOb9sBK93ZaPoEcXwepOh5s7Uvmjn6cHzOQ/d/pN4AZuGq44UKHOplg/wdrf8o3G7vpbro/tMmGlq3nzuBCCPTRxaT2NnnC+XFcjgZcXlZpwg4D31rCUAJBSdkH33clYJdqATNo4BbK26CKuhBEYW0RfSeVmCc0VIzcvL8QzB7h7lkjFYuBMe4OHpUn9SXiE++WL7JzIfewfWqJG4so4Fr6yn6lpZuBNhClV6pzt/5slrXrJ8M4+iPCKSPguuWauLaJdcTlir91MtnZKOPtW1U+pTNS2JXmAuIV5XhaEdIW7BzWtLuq/f+K3juflZr1hWM3rZ0QAwndPiKS6Mb3bK2MZJa+T+kjxT8YHhMOeoMDaUnm1Gz5ryRAx1CXY8hkyojxU4Spc4nAUXpBGh7/d80Pb38gTKqrBLw9zrmFC2kaU=
   run:
-  - mvn clean package
+  - mvn clean install
